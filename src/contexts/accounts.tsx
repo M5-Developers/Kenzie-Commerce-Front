@@ -17,6 +17,10 @@ interface IAccountProviderFunctions {
     signUp: (data: IAccountSignUp) => void
     login: (data: IAccountLogin) => void
     logout: () => void
+    isLoggedIn: () => boolean
+    isSuperUser: () => boolean
+    isStaff: () => boolean
+    isNormalUser: () => boolean
 }
 
 interface IAccountProviderProps {
@@ -26,6 +30,27 @@ interface IAccountProviderProps {
 export const AccountContext = createContext<IAccountProviderFunctions>({} as IAccountProviderFunctions);
 
 export const AccountProvider = ({children}: IAccountProviderProps) => {
+
+    const isLoggedIn = () => {
+        //authenticate
+        return false //or true if authenticated success
+    }
+    
+    const isSuperUser =() => {
+        //authetnticate
+        return false //or result from authentication
+    } 
+    
+    const isStaff = () => {
+        //authenticate
+        return false //or result from authentication
+    }
+
+    const isNormalUser = () => {
+        //authenticate
+        //if not superuser and not staf, it becomes true
+        return false //or result from authentication
+    }
 
     const signUp = (data: IAccountSignUp) => {
         console.log('Requisição de cadastro de usuário')
@@ -47,8 +72,12 @@ export const AccountProvider = ({children}: IAccountProviderProps) => {
         <AccountContext.Provider value={{
             signUp,
             login,
-            logout
-        }}>
+            logout,
+            isLoggedIn,
+            isSuperUser,
+            isStaff,
+            isNormalUser            
+            }}>
             {children}
         </AccountContext.Provider>
     )

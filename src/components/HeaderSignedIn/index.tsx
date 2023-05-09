@@ -1,6 +1,6 @@
 import MainHeader from "../../styles/headers"
 
-const HeaderUnsigned = () => {
+const HeaderSignedIn = () => {
   return (
     <MainHeader className="main_header">
         <h1>🛒Kenzie Commerce</h1>
@@ -9,4 +9,4 @@ const HeaderUnsigned = () => {
   )
 }
 
-export default HeaderUnsigned
+export default HeaderSignedIn
